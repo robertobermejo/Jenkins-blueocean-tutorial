@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'alpine:3.6'
+    }
+    
+  }
   stages {
     stage('Initialize') {
       steps {
