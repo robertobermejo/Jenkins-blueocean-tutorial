@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        echo 'This is a message on the pipeline'
+        echo 'This is a message on the pipeline and updated on github'
       }
     }
   }
