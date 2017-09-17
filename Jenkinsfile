@@ -1,16 +1,21 @@
 pipeline {
-  agent {
-    docker {
-      image 'alpine:3.6'
+    agent none
+    stages {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3-alpine' }
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+                docker { image 'node:7-alpine' }
+            }
+            steps {
+                sh 'node --version'
+            }
+        }
     }
-    
-  }
-  stages {
-    stage('Initialize') {
-      steps {
-        echo 'This is a message on the pipeline and updated on github'
-        echo 'Added another message from github'
-      }
-    }
-  }
 }
